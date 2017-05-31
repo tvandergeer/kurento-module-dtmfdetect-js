@@ -1,0 +1,79 @@
+{
+  "name": "dtmfdetect",
+  "version": "0.0.1-dev",
+  "kurentoVersion": "^6.0.0",
+  "imports": [
+    {
+      "name": "core",
+      "version": "^6.0.0",
+      "mavenVersion": "[6.0.0,7.0.0-SNAPSHOT)",
+      "npmVersion": ">=6.0.0 <7.0.0"
+    },
+    {
+      "name": "elements",
+      "version": "^6.0.0",
+      "mavenVersion": "[6.0.0,7.0.0-SNAPSHOT)",
+      "npmVersion": ">=6.0.0 <7.0.0"
+    },
+    {
+      "name": "filters",
+      "version": "^6.0.0",
+      "mavenVersion": "[6.0.0,7.0.0-SNAPSHOT)",
+      "npmVersion": ">=6.0.0 <7.0.0"
+    }
+  ],
+  "code": {
+    "api": {
+      "js": {
+        "nodeName": "kurento-module-dtmfdetect",
+        "npmDescription": "",
+        "npmVersion": "0.0.1"
+      },
+      "java": {
+        "mavenGroupId": "org.kurento.module",
+        "packageName": "org.kurento.module.dtmfdetect",
+        "mavenArtifactId": "dtmfdetect",
+        "mavenVersion": "0.0.1-SNAPSHOT"
+      }
+    },
+    "implementation": {
+      "lib": "libkmsdtmfdetect",
+      "cppNamespace": "kurento::module::dtmfdetect"
+    }
+  },
+  "remoteClasses": [
+    {
+      "name": "DtmfDetect",
+      "doc": "This filter detects DTMF tones in an audio stream. When a DTMF tone is found the filter raises a :rom:evnt:`DtmfDetected` event.",
+      "extends": "Filter",
+      "constructor": {
+        "params": [
+          {
+            "name": "mediaPipeline",
+            "doc": "the parent :rom:cls:`MediaPipeline`",
+            "type": "MediaPipeline"
+          }
+        ],
+        "doc": "Create an element"
+      },
+      "events": [
+        "DtmfDetected"
+      ]
+    }
+  ],
+  "complexTypes": [],
+  "events": [
+    {
+      "properties": [
+        {
+          "name": "value",
+          "doc": "value of the :term:`DTMF` tone",
+          "type": "String"
+        }
+      ],
+      "extends": "Media",
+      "name": "DtmfDetected",
+      "doc": "Event raised by a :rom:cls:`DtmfDetect` when a DTMF tone is found in the audio being streamed."
+    }
+  ]
+}
